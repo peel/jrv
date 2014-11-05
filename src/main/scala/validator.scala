@@ -25,7 +25,7 @@ object validator extends App {
     head("jrv", "1.x")
     opt[String]('r', "regex") required() valueName "<pattern>" action {(x,c)=>
         c.copy(regex=x) } text "regex is a required pattern property"
-    opt[File]('d', "dir") action { (x, c) =>
+    opt[File]('d', "dir") valueName "<directory>" action {(x,c)=>
         c.copy(dir=x) } text "directory that shall be scanned for filenames"
     help("help") text "prints this usage text"
   }
