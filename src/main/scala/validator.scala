@@ -1,7 +1,7 @@
 import java.io.File
 import java.util.regex.{PatternSyntaxException, Pattern}
 
-import scala.util.{Failure, Success, Try}
+import scala.util.{Random, Failure, Success, Try}
 
 case class Config(regex: String = "*", dir: File=new File("."))
 
@@ -17,6 +17,27 @@ object Matcher{
   def printMatches(files: Seq[String], regex:String):Unit={
     matches(files,regex).foreach(s => println(s"- $s"))
   }
+}
+
+object NameGenerator{
+  def generate={
+    def randomString=Random.alphanumeric.take(10).foldLeft("")(_+_)
+    generateWith(randomString)
+  }
+  def generateWith(base: String)={
+    def toggle(char: Char)=char match{
+      case _ if char.isUpper => char.toLower
+      case _ => char.toUpper
+    }
+    val toggleNumber=Random.nextInt(base.length)
+
+    (for{
+      l <- base
+      t <- toggleNumber
+      toggled = toggle(l)
+    } yield toggled).foldLeft("")(_+_)
+  }
+
 }
 
 object validator extends App {
