@@ -1,5 +1,3 @@
-import java.util.regex.PatternSyntaxException
-
 import org.scalatest.FlatSpec
 import org.scalatest.Matchers
 import scala.util.{Success,Failure}
@@ -7,18 +5,26 @@ import scala.util.{Success,Failure}
 class MatcherSpec extends FlatSpec with Matchers{
 
     "The .* pattern" should "match 'string'" in {
-      Matcher.matchPattern("string",".*") should equal (Success(true))
+      val matcher = new Matcher
+      matcher.matchPattern("string",".*") should equal (Success(true))
     }
     it should "match nothing" in {
-      Matcher.matchPattern("string","\\d+") should equal (Success(false))
+      val matcher = new Matcher
+      matcher.matchPattern("string","\\d+") should equal (Success(false))
+    }
+    it should "not die on empty files list" in {
+      val matcher = new Matcher
+      matcher.matchPattern("string","\\d+") should equal (Success(false))
     }
 
-    "The * pattern" should "fail on invalid pattern" in {
-      an [PatternSyntaxException] should be thrownBy Matcher.matchPattern("string","*").get
+    "The * pattern" should "inform on invalid pattern" in {
+      val matcher = new Matcher
+      matcher.matches("string"::Nil,"*") should equal (Seq())
     }
 
     "The .*.md pattern" should "filter out md file" in {
+      val matcher = new Matcher
       val files = Seq("abc.md","abc.txt","def.zip")
-      Matcher.matches(files,".*.md") should have size 1
+      matcher.matches(files,".*.md") should have size 1
     }
 }

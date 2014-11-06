@@ -8,14 +8,14 @@ version := "1.0"
 
 libraryDependencies ++= Seq(
   "com.github.scopt" %% "scopt" % "3.2.0",
-  "org.scalatest" %% "scalatest" % "2.2.1" % "test"
+  "org.scalatest" %% "scalatest" % "2.2.1" % "test",
+  "org.hamcrest" % "hamcrest-core" % "1.1",
+  "org.mockito" % "mockito-core" % "1.10.8"
 )
 
 mainClass := Some("validator")
 
 resolvers += Resolver.sonatypeRepo("public")
-
-resolvers ++= Seq("snapshots", "releases").map(Resolver.sonatypeRepo)
 
 scalacOptions in Test ++= Seq("-Yrangepos")
 
