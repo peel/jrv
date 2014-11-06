@@ -4,7 +4,7 @@ import NativePackagerKeys._
 
 name := "jrv"
 
-version := "1.0"
+version := "1.1"
 
 libraryDependencies ++= Seq(
   "com.github.scopt" %% "scopt" % "3.2.0",
