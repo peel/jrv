@@ -27,4 +27,11 @@ class MatcherSpec extends FlatSpec with Matchers{
       val files = Seq("abc.md","abc.txt","def.zip")
       matcher.matches(files,".*.md") should have size 1
     }
+
+    "Drops" should "show diff of all and matches" in {
+      val matcher = new Matcher
+      val all = Seq("abc.md","abc.txt","def.zip")
+      val matches = Seq("abc.md","abc.txt")
+      matcher.drops(all, matches) should have size 1
+    }
 }

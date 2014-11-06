@@ -20,13 +20,26 @@ Usage: jrv [options]
 
 #Sample
 
+## real directory selection
 ```bash
-$ jrv -r ".*" --dir ~/Desktop
-
+$ jrv -r ".*" -d ~/Desktop
 matches in /home/peel/Desktop:
 - export.txt
 - settings.xml
 - jrv.md
 - arch
 - get_transfer_configs.sql
+```
+
+## filename generation
+Using `-b` switch allows generation of a pseudo-random manipulation of the filename basing upon a predefined base name.
+```bash
+$ jrv -r ".*.txt" -b "text.txt"
+-- matches for .*.txt in . --------------------------
+- tdsT4txt
+- test.txt
+- test.txt
+-- dropped -------------------------------------------------------
+- TeS7FTxm
+- tEStYN7O
 ```

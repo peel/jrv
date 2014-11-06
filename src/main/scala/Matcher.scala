@@ -9,9 +9,8 @@ class Matcher{
     case Success(bool)  => bool
     case Failure(e: PatternSyntaxException) => println("invalid regex"); false
     case _ => false
-})
+  })
 
-  def printMatches(files: Seq[String], regex:String):Unit={
-    matches(files,regex).foreach(s => println(s"- $s"))
-  }
+  def drops(all: Seq[String], matches:Seq[String])=all.diff(matches)
+
 }
