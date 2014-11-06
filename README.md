@@ -12,6 +12,8 @@ Usage: jrv [options]
         regex is a required pattern property
   -d <directory> | --dir <directory>
         directory that shall be scanned for filenames
+  -b <basename> | --base-name <basename>
+        use a defined file basename instead of generated one
   --help
         prints this usage text
 ```
