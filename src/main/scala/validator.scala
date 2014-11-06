@@ -15,10 +15,13 @@ object validator extends App {
   }
 
   parser.parse(args,Config()) map {config =>
-    println(s"-- matching -----------------------------------------------------")
-    config.list.foreach(println)
     println(s"-- matches for ${config.regex} in ${config.dir} --------------------------")
     new Matcher().printMatches(config.list, config.regex)
+    /*
+    TODO: print dropped files
+    println(s"-- dropped -------------------------------------------------------")
+    matcher.printDropped
+    */
   }
 }
 
