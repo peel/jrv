@@ -1,0 +1,13 @@
+language: scala
+scala:
+   - 2.11.4
+branches:
+  only:
+    - master
+notifications:
+  email:
+    recipients:
+      - plimanowski@gmail.com
+jdk:
+  - oraclejdk7
+  - oraclejdk8
