@@ -1,4 +1,5 @@
-[![Stories in Ready](https://badge.waffle.io/peel/jrv.png?label=ready&title=Ready)](https://waffle.io/peel/jrv)
+[![Build Status](https://travis-ci.org/peel/jrv.svg?branch=master)](https://travis-ci.org/peel/jrv)[![Stories in Ready](https://badge.waffle.io/peel/jrv.png?label=ready&title=Ready)](https://waffle.io/peel/jrv)
+
 jrv
 ===
 
