@@ -1,6 +1,6 @@
 import java.io.File
 
-object validator extends App {
+object Validator extends App {
   implicit val lister:Lister=new Lister with FuzzyNameLister
 
   val parser = new scopt.OptionParser[Config]("jrv"){

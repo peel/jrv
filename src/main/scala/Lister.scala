@@ -13,7 +13,8 @@ trait FilesLister extends Lister{
 
 trait FuzzyNameLister extends Lister{
   def list(base: String):Seq[String]={
-    for(i <- 1 to Random.nextInt(10)+1) yield generate(base)
+    val samples: Int = Random.nextInt(10) + 1
+    for(i <- 1 to samples) yield generate(base)
   }
 
   private def generate(base: String):String={
